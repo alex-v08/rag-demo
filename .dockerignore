@@ -1,0 +1,45 @@
+# Ignorar archivos innecesarios para el build de Docker
+target/
+.mvn/wrapper/maven-wrapper.jar
+!.mvn/wrapper/maven-wrapper.properties
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+app.log
+
+# Temp files
+*.tmp
+*.temp
+
+# Test files
+document-test.*
+test-content.*
+vistas-db.txt
+
+# Git
+.git/
+.gitignore
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Documentation
+README.md
+*.md
+
+# Uploads directory content
+uploads/*
+!uploads/.gitkeep

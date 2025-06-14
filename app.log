@@ -1,0 +1,1224 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< com.atuhome:rag-demo >------------------------
+[INFO] Building rag-demo 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.5.0:run (default-cli) > test-compile @ rag-demo >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ rag-demo ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.0:compile (default-compile) @ rag-demo ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ rag-demo ---
+[INFO] Copying 2 resources from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ rag-demo ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 1 source file with javac [debug parameters release 21] to target/test-classes
+[INFO] 
+[INFO] <<< spring-boot:3.5.0:run (default-cli) < test-compile @ rag-demo <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.5.0:run (default-cli) @ rag-demo ---
+[INFO] Attaching agents: []
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2025-06-13T20:18:03.367-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Starting RagDemoApplication using Java 21.0.7 with PID 21928 (/home/alexv/workspace/Rag_demo/rag-demo/target/classes started by alexv in /home/alexv/workspace/Rag_demo/rag-demo)
+2025-06-13T20:18:03.368-03:00 DEBUG 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Running with Spring Boot v3.5.0, Spring v6.2.7
+2025-06-13T20:18:03.369-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-06-13T20:18:03.400-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-13T20:18:03.400-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-13T20:18:04.355-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-13T20:18:04.472-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 110 ms. Found 3 JPA repository interfaces.
+2025-06-13T20:18:04.901-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-13T20:18:04.911-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-13T20:18:04.911-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-13T20:18:04.941-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-13T20:18:04.942-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1541 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2025-06-13T20:18:05.084-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-13T20:18:05.230-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1beffcf4
+2025-06-13T20:18:05.231-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-13T20:18:05.295-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-13T20:18:05.329-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-13T20:18:05.354-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-13T20:18:05.438-03:00  WARN 21928 --- [legal-rag-mvp] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-13T20:18:05.449-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.8
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-13T20:18:05.597-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-13T20:18:06.321-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-13T20:18:06.454-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13T20:18:06.703-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-13T20:18:07.188-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] c.a.r.s.document.FileStorageService      : Directorio de uploads creado/verificado: /home/alexv/workspace/Rag_demo/rag-demo/uploads
+2025-06-13T20:18:07.780-03:00  WARN 21928 --- [legal-rag-mvp] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-13T20:18:08.206-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-13T20:18:08.214-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2025-06-13T20:18:08.279-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-06-13T20:18:08.295-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Started RagDemoApplication in 5.293 seconds (process running for 5.671)
+2025-06-13T20:18:13.371-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-13T20:18:13.372-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-13T20:18:13.373-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-06-13T20:18:41.673-03:00  INFO 21928 --- [legal-rag-mvp] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 4 class path changes (0 additions, 3 deletions, 1 modification)
+2025-06-13T20:18:41.677-03:00  INFO 21928 --- [legal-rag-mvp] [       Thread-7] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-13T20:18:41.679-03:00  INFO 21928 --- [legal-rag-mvp] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-06-13T20:18:41.686-03:00  INFO 21928 --- [legal-rag-mvp] [       Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13T20:18:41.690-03:00  INFO 21928 --- [legal-rag-mvp] [       Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-13T20:18:41.693-03:00  INFO 21928 --- [legal-rag-mvp] [       Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2025-06-13T20:18:41.821-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Starting RagDemoApplication using Java 21.0.7 with PID 21928 (/home/alexv/workspace/Rag_demo/rag-demo/target/classes started by alexv in /home/alexv/workspace/Rag_demo/rag-demo)
+2025-06-13T20:18:41.821-03:00 DEBUG 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Running with Spring Boot v3.5.0, Spring v6.2.7
+2025-06-13T20:18:41.821-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-06-13T20:18:42.299-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-13T20:18:42.316-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 3 JPA repository interfaces.
+2025-06-13T20:18:42.464-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-13T20:18:42.465-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-13T20:18:42.465-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-13T20:18:42.477-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-13T20:18:42.477-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 652 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2025-06-13T20:18:42.570-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2025-06-13T20:18:42.595-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@3e0b81ed
+2025-06-13T20:18:42.596-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2025-06-13T20:18:42.620-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-13T20:18:42.622-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-13T20:18:42.628-03:00  WARN 21928 --- [legal-rag-mvp] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-13T20:18:42.629-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 16.8
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-13T20:18:42.637-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-13T20:18:42.762-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-13T20:18:42.898-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13T20:18:42.991-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] c.a.r.s.document.FileStorageService      : Directorio de uploads creado/verificado: /home/alexv/workspace/Rag_demo/rag-demo/uploads
+2025-06-13T20:18:43.153-03:00  WARN 21928 --- [legal-rag-mvp] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-13T20:18:43.341-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-13T20:18:43.346-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2025-06-13T20:18:43.370-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-06-13T20:18:43.381-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Started RagDemoApplication in 1.603 seconds (process running for 40.757)
+2025-06-13T20:18:43.384-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-06-13T20:18:44.745-03:00  INFO 21928 --- [legal-rag-mvp] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 3 class path changes (3 additions, 0 deletions, 0 modifications)
+2025-06-13T20:18:44.747-03:00  INFO 21928 --- [legal-rag-mvp] [       Thread-9] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-13T20:18:44.748-03:00  INFO 21928 --- [legal-rag-mvp] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-06-13T20:18:44.752-03:00  INFO 21928 --- [legal-rag-mvp] [       Thread-9] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13T20:18:44.753-03:00  INFO 21928 --- [legal-rag-mvp] [       Thread-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2025-06-13T20:18:44.754-03:00  INFO 21928 --- [legal-rag-mvp] [       Thread-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2025-06-13T20:18:44.860-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Starting RagDemoApplication using Java 21.0.7 with PID 21928 (/home/alexv/workspace/Rag_demo/rag-demo/target/classes started by alexv in /home/alexv/workspace/Rag_demo/rag-demo)
+2025-06-13T20:18:44.860-03:00 DEBUG 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Running with Spring Boot v3.5.0, Spring v6.2.7
+2025-06-13T20:18:44.861-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-06-13T20:18:45.145-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-13T20:18:45.155-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 3 JPA repository interfaces.
+2025-06-13T20:18:45.239-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-13T20:18:45.240-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-13T20:18:45.240-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-13T20:18:45.248-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-13T20:18:45.248-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 386 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2025-06-13T20:18:45.296-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2025-06-13T20:18:45.314-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@60c4dbb9
+2025-06-13T20:18:45.315-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2025-06-13T20:18:45.327-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-13T20:18:45.329-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-13T20:18:45.333-03:00  WARN 21928 --- [legal-rag-mvp] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-13T20:18:45.334-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-3)']
+	Database driver: undefined/unknown
+	Database version: 16.8
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-13T20:18:45.338-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-13T20:18:45.421-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-13T20:18:45.525-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13T20:18:45.607-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] c.a.r.s.document.FileStorageService      : Directorio de uploads creado/verificado: /home/alexv/workspace/Rag_demo/rag-demo/uploads
+2025-06-13T20:18:45.725-03:00  WARN 21928 --- [legal-rag-mvp] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-13T20:18:45.863-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-13T20:18:45.867-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2025-06-13T20:18:45.891-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-06-13T20:18:45.900-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Started RagDemoApplication in 1.06 seconds (process running for 43.276)
+2025-06-13T20:18:45.902-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-06-13T20:18:51.926-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-13T20:18:51.926-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-13T20:18:51.929-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-06-13T20:18:51.969-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-1] c.a.r.controller.DocumentController      : Recibida solicitud de carga de documento: After class 01 - Lenguaje SQL DDL.pptx.pdf
+2025-06-13T20:18:51.977-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-1] c.a.r.service.document.DocumentService   : Iniciando carga de documento: After class 01 - Lenguaje SQL DDL.pptx.pdf
+2025-06-13T20:18:52.052-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        d1_0.id,
+        d1_0.content_hash,
+        d1_0.created_at,
+        d1_0.error_message,
+        d1_0.file_path,
+        d1_0.file_size,
+        d1_0.filename,
+        d1_0.metadata,
+        d1_0.processing_completed_at,
+        d1_0.processing_started_at,
+        d1_0.status,
+        d1_0.updated_at,
+        d1_0.upload_date 
+    from
+        documents d1_0 
+    where
+        d1_0.content_hash=?
+2025-06-13T20:18:52.076-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-1] c.a.r.s.document.FileStorageService      : Archivo almacenado: After class 01 - Lenguaje SQL DDL.pptx.pdf -> ee1712b0-1eff-42de-a7ab-b2cc02f52b3d.pdf
+2025-06-13T20:18:52.099-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-1] c.a.r.service.document.DocumentService   : Iniciando procesamiento del documento: 01127a6c-8f63-471d-8d99-2f9fd27ba852
+2025-06-13T20:18:52.110-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-1] c.a.r.service.document.DocumentService   : Extrayendo texto del documento 01127a6c-8f63-471d-8d99-2f9fd27ba852
+2025-06-13T20:18:52.110-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-1] c.a.r.s.p.SimplePdfTextExtractor         : Simulando extracción de texto de PDF: After class 01 - Lenguaje SQL DDL.pptx.pdf
+2025-06-13T20:18:52.111-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-1] c.a.r.s.p.SimplePdfTextExtractor         : Texto simulado extraído: 3 páginas, 645 caracteres
+2025-06-13T20:18:52.112-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-1] c.a.r.service.document.DocumentService   : Dividiendo documento 01127a6c-8f63-471d-8d99-2f9fd27ba852 en chunks
+2025-06-13T20:18:52.112-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-1] c.a.r.s.processing.DocumentChunker       : Dividiendo documento en chunks: tamaño máximo=1000, overlap=200
+2025-06-13T20:18:52.113-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-1] c.a.r.s.processing.DocumentChunker       : Documento dividido en 1 chunks
+2025-06-13T20:18:52.113-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-1] c.a.r.service.document.DocumentService   : Guardando 1 chunks para documento 01127a6c-8f63-471d-8d99-2f9fd27ba852
+2025-06-13T20:18:52.123-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-1] c.a.r.service.document.DocumentService   : Generando embeddings para documento 01127a6c-8f63-471d-8d99-2f9fd27ba852
+2025-06-13T20:18:52.124-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-1] c.a.r.service.ai.OllamaEmbeddingService  : Generando embeddings para 1 chunks usando Ollama bge-m3
+2025-06-13T20:18:52.124-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-1] c.a.r.service.ai.OllamaEmbeddingService  : Procesando batch 1/1 con 1 chunks
+2025-06-13T20:18:52.503-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-1] c.a.r.service.ai.OllamaEmbeddingService  : Embedding generado para chunk 6dc7fdcb-2ffd-4942-b30b-8dd35326dbe6: dimensión 1024
+2025-06-13T20:18:52.504-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-1] c.a.r.service.ai.OllamaEmbeddingService  : Batch de 1 chunks procesado exitosamente
+2025-06-13T20:18:52.504-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-1] c.a.r.service.ai.OllamaEmbeddingService  : Embeddings generados y almacenados para 1 chunks
+2025-06-13T20:18:52.504-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-1] c.a.r.service.document.DocumentService   : Procesamiento completado para documento: 01127a6c-8f63-471d-8d99-2f9fd27ba852 (1 chunks)
+2025-06-13T20:18:52.504-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-1] c.a.r.service.document.DocumentService   : Documento cargado exitosamente: After class 01 - Lenguaje SQL DDL.pptx.pdf (ID: 01127a6c-8f63-471d-8d99-2f9fd27ba852)
+2025-06-13T20:18:52.520-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    insert 
+    into
+        documents
+        (content_hash, created_at, error_message, file_path, file_size, filename, metadata, processing_completed_at, processing_started_at, status, updated_at, upload_date, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-06-13T20:18:52.524-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    insert 
+    into
+        document_chunks
+        (char_end, char_start, chunk_index, content, created_at, document_id, embedding, metadata, page_number, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-06-13T20:18:52.529-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    update
+        documents 
+    set
+        content_hash=?,
+        created_at=?,
+        error_message=?,
+        file_path=?,
+        file_size=?,
+        filename=?,
+        metadata=?,
+        processing_completed_at=?,
+        processing_started_at=?,
+        status=?,
+        updated_at=?,
+        upload_date=? 
+    where
+        id=?
+2025-06-13T20:18:52.534-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    update
+        document_chunks 
+    set
+        char_end=?,
+        char_start=?,
+        chunk_index=?,
+        content=?,
+        created_at=?,
+        document_id=?,
+        embedding=?,
+        metadata=?,
+        page_number=? 
+    where
+        id=?
+2025-06-13T20:18:52.537-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        count(dc1_0.id) 
+    from
+        document_chunks dc1_0 
+    left join
+        documents d1_0 
+            on d1_0.id=dc1_0.document_id 
+    where
+        d1_0.id=?
+2025-06-13T20:18:52.540-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    update
+        documents 
+    set
+        content_hash=?,
+        created_at=?,
+        error_message=?,
+        file_path=?,
+        file_size=?,
+        filename=?,
+        metadata=?,
+        processing_completed_at=?,
+        processing_started_at=?,
+        status=?,
+        updated_at=?,
+        upload_date=? 
+    where
+        id=?
+2025-06-13T20:18:52.542-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-1] org.hibernate.SQL                        : 
+    update
+        document_chunks 
+    set
+        char_end=?,
+        char_start=?,
+        chunk_index=?,
+        content=?,
+        created_at=?,
+        document_id=?,
+        embedding=?,
+        metadata=?,
+        page_number=? 
+    where
+        id=?
+2025-06-13T20:20:08.428-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-4] c.a.ragdemo.controller.QAController      : Recibida pregunta: ¿Cómo borro constraints checks ?
+2025-06-13T20:20:08.429-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-4] c.a.ragdemo.service.rag.RagService       : Procesando pregunta: ¿Cómo borro constraints checks ?
+2025-06-13T20:20:08.433-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        document_chunks dc1_0
+2025-06-13T20:20:08.434-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-4] c.a.r.service.rag.SemanticSearchService  : Buscando chunks similares para query: '¿Cómo borro constraints checks ?' (threshold: 0.2, max: 5)
+2025-06-13T20:20:08.435-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-4] c.a.r.service.ai.OllamaEmbeddingService  : Iniciando búsqueda de chunks similares para query: '¿Cómo borro constraints checks ?'
+2025-06-13T20:20:08.435-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-4] c.a.r.service.ai.OllamaEmbeddingService  : Generando embedding para texto de 32 caracteres
+2025-06-13T20:20:08.598-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-4] c.a.r.service.ai.OllamaEmbeddingService  : Embedding generado con dimensión: 1024
+2025-06-13T20:20:08.598-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-4] c.a.r.service.ai.OllamaEmbeddingService  : Query embedding generado con dimensión: 1024
+2025-06-13T20:20:08.598-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-4] c.a.r.service.ai.OllamaEmbeddingService  : Buscando chunks similares para query. Threshold: 0.2, Max results: 5
+2025-06-13T20:20:08.604-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        dc1_0.id,
+        dc1_0.char_end,
+        dc1_0.char_start,
+        dc1_0.chunk_index,
+        dc1_0.content,
+        dc1_0.created_at,
+        dc1_0.document_id,
+        dc1_0.embedding,
+        dc1_0.metadata,
+        dc1_0.page_number 
+    from
+        document_chunks dc1_0 
+    where
+        dc1_0.embedding is not null 
+        and dc1_0.embedding<>'' 
+    order by
+        dc1_0.id
+2025-06-13T20:20:08.611-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-4] c.a.r.service.ai.OllamaEmbeddingService  : Encontrados 1 chunks con embeddings
+2025-06-13T20:20:08.614-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-4] c.a.r.service.ai.OllamaEmbeddingService  : Chunk 6dc7fdcb-2ffd-4942-b30b-8dd35326dbe6: similaridad = 0.3854712599935173
+2025-06-13T20:20:08.614-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-4] c.a.r.service.ai.OllamaEmbeddingService  : Chunk seleccionado: 6dc7fdcb-2ffd-4942-b30b-8dd35326dbe6 con similaridad: 0.3854712599935173
+2025-06-13T20:20:08.614-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-4] c.a.r.service.ai.OllamaEmbeddingService  : Búsqueda completada. Encontrados 1 chunks similares
+2025-06-13T20:20:08.616-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        d1_0.id,
+        d1_0.content_hash,
+        d1_0.created_at,
+        d1_0.error_message,
+        d1_0.file_path,
+        d1_0.file_size,
+        d1_0.filename,
+        d1_0.metadata,
+        d1_0.processing_completed_at,
+        d1_0.processing_started_at,
+        d1_0.status,
+        d1_0.updated_at,
+        d1_0.upload_date 
+    from
+        documents d1_0 
+    where
+        d1_0.id=?
+2025-06-13T20:20:08.622-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-4] c.a.ragdemo.service.rag.RagService       : Encontrados 1 chunks relevantes
+2025-06-13T20:20:08.622-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-4] c.a.r.service.rag.ContextBuilderService  : Construyendo contexto con 1 resultados
+2025-06-13T20:20:08.623-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-4] c.a.r.service.rag.ContextBuilderService  : Contexto construido: 731 caracteres, 1 chunks utilizados
+2025-06-13T20:20:08.623-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-4] c.a.r.s.ai.AntiHallucinationService      : Creando prompt estricto para pregunta: ¿Cómo borro constraints checks ?
+2025-06-13T20:20:08.623-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-4] c.a.ragdemo.service.rag.RagService       : Generando respuesta con LLM
+2025-06-13T20:20:14.235-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-4] c.a.ragdemo.service.rag.RagService       : Respuesta generada: 70 caracteres
+2025-06-13T20:20:14.235-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-4] c.a.r.s.ai.AntiHallucinationService      : Validando respuesta: No encontré información sobre este tema en los documentos disponibles.
+2025-06-13T20:20:14.235-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-4] c.a.r.s.ai.AntiHallucinationService      : Respuesta validada exitosamente
+2025-06-13T20:20:14.244-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-4] c.a.ragdemo.service.rag.RagService       : Interacción guardada en historial
+2025-06-13T20:20:14.244-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-4] c.a.ragdemo.service.rag.RagService       : Pregunta procesada exitosamente en 5805ms
+2025-06-13T20:20:14.246-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    insert 
+    into
+        qa_history
+        (answer, context_used, created_at, feedback_comment, feedback_rating, model_used, question, response_time_ms, sources, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-06-13T20:20:14.248-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-4] org.hibernate.SQL                        : 
+    update
+        qa_history 
+    set
+        answer=?,
+        context_used=?,
+        created_at=?,
+        feedback_comment=?,
+        feedback_rating=?,
+        model_used=?,
+        question=?,
+        response_time_ms=?,
+        sources=? 
+    where
+        id=?
+2025-06-13T20:20:14.252-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-4] c.a.ragdemo.controller.QAController      : Pregunta procesada en 5805ms con 1 fuentes
+2025-06-13T20:23:28.418-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-6] c.a.ragdemo.controller.QAController      : Recibida pregunta: ¿Cómo borro constraints checks ?
+2025-06-13T20:23:28.419-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-6] c.a.ragdemo.service.rag.RagService       : Procesando pregunta: ¿Cómo borro constraints checks ?
+2025-06-13T20:23:28.420-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        document_chunks dc1_0
+2025-06-13T20:23:28.422-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-6] c.a.r.service.rag.SemanticSearchService  : Buscando chunks similares para query: '¿Cómo borro constraints checks ?' (threshold: 0.2, max: 5)
+2025-06-13T20:23:28.422-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-6] c.a.r.service.ai.OllamaEmbeddingService  : Iniciando búsqueda de chunks similares para query: '¿Cómo borro constraints checks ?'
+2025-06-13T20:23:28.422-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-6] c.a.r.service.ai.OllamaEmbeddingService  : Generando embedding para texto de 32 caracteres
+2025-06-13T20:23:28.614-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-6] c.a.r.service.ai.OllamaEmbeddingService  : Embedding generado con dimensión: 1024
+2025-06-13T20:23:28.614-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-6] c.a.r.service.ai.OllamaEmbeddingService  : Query embedding generado con dimensión: 1024
+2025-06-13T20:23:28.614-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-6] c.a.r.service.ai.OllamaEmbeddingService  : Buscando chunks similares para query. Threshold: 0.2, Max results: 5
+2025-06-13T20:23:28.614-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        dc1_0.id,
+        dc1_0.char_end,
+        dc1_0.char_start,
+        dc1_0.chunk_index,
+        dc1_0.content,
+        dc1_0.created_at,
+        dc1_0.document_id,
+        dc1_0.embedding,
+        dc1_0.metadata,
+        dc1_0.page_number 
+    from
+        document_chunks dc1_0 
+    where
+        dc1_0.embedding is not null 
+        and dc1_0.embedding<>'' 
+    order by
+        dc1_0.id
+2025-06-13T20:23:28.616-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-6] c.a.r.service.ai.OllamaEmbeddingService  : Encontrados 1 chunks con embeddings
+2025-06-13T20:23:28.616-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-6] c.a.r.service.ai.OllamaEmbeddingService  : Chunk 6dc7fdcb-2ffd-4942-b30b-8dd35326dbe6: similaridad = 0.3854712599935173
+2025-06-13T20:23:28.616-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-6] c.a.r.service.ai.OllamaEmbeddingService  : Chunk seleccionado: 6dc7fdcb-2ffd-4942-b30b-8dd35326dbe6 con similaridad: 0.3854712599935173
+2025-06-13T20:23:28.616-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-6] c.a.r.service.ai.OllamaEmbeddingService  : Búsqueda completada. Encontrados 1 chunks similares
+2025-06-13T20:23:28.617-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        d1_0.id,
+        d1_0.content_hash,
+        d1_0.created_at,
+        d1_0.error_message,
+        d1_0.file_path,
+        d1_0.file_size,
+        d1_0.filename,
+        d1_0.metadata,
+        d1_0.processing_completed_at,
+        d1_0.processing_started_at,
+        d1_0.status,
+        d1_0.updated_at,
+        d1_0.upload_date 
+    from
+        documents d1_0 
+    where
+        d1_0.id=?
+2025-06-13T20:23:28.618-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-6] c.a.ragdemo.service.rag.RagService       : Encontrados 1 chunks relevantes
+2025-06-13T20:23:28.618-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-6] c.a.r.service.rag.ContextBuilderService  : Construyendo contexto con 1 resultados
+2025-06-13T20:23:28.618-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-6] c.a.r.service.rag.ContextBuilderService  : Contexto construido: 731 caracteres, 1 chunks utilizados
+2025-06-13T20:23:28.618-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-6] c.a.r.s.ai.AntiHallucinationService      : Creando prompt estricto para pregunta: ¿Cómo borro constraints checks ?
+2025-06-13T20:23:28.618-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-6] c.a.ragdemo.service.rag.RagService       : Generando respuesta con LLM
+2025-06-13T20:23:29.721-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-6] c.a.ragdemo.service.rag.RagService       : Respuesta generada: 70 caracteres
+2025-06-13T20:23:29.721-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-6] c.a.r.s.ai.AntiHallucinationService      : Validando respuesta: No encontré información sobre este tema en los documentos disponibles.
+2025-06-13T20:23:29.721-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-6] c.a.r.s.ai.AntiHallucinationService      : Respuesta validada exitosamente
+2025-06-13T20:23:29.722-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-6] c.a.ragdemo.service.rag.RagService       : Interacción guardada en historial
+2025-06-13T20:23:29.723-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-6] c.a.ragdemo.service.rag.RagService       : Pregunta procesada exitosamente en 1302ms
+2025-06-13T20:23:29.723-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-6] org.hibernate.SQL                        : 
+    insert 
+    into
+        qa_history
+        (answer, context_used, created_at, feedback_comment, feedback_rating, model_used, question, response_time_ms, sources, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-06-13T20:23:29.725-03:00 DEBUG 21928 --- [legal-rag-mvp] [nio-8080-exec-6] org.hibernate.SQL                        : 
+    update
+        qa_history 
+    set
+        answer=?,
+        context_used=?,
+        created_at=?,
+        feedback_comment=?,
+        feedback_rating=?,
+        model_used=?,
+        question=?,
+        response_time_ms=?,
+        sources=? 
+    where
+        id=?
+2025-06-13T20:23:29.729-03:00  INFO 21928 --- [legal-rag-mvp] [nio-8080-exec-6] c.a.ragdemo.controller.QAController      : Pregunta procesada en 1302ms con 1 fuentes
+2025-06-13T20:23:43.787-03:00  INFO 21928 --- [legal-rag-mvp] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 62 class path changes (0 additions, 62 deletions, 0 modifications)
+2025-06-13T20:23:43.788-03:00  INFO 21928 --- [legal-rag-mvp] [      Thread-15] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-13T20:23:43.789-03:00  INFO 21928 --- [legal-rag-mvp] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-06-13T20:23:43.792-03:00  INFO 21928 --- [legal-rag-mvp] [      Thread-15] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13T20:23:43.792-03:00  INFO 21928 --- [legal-rag-mvp] [      Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2025-06-13T20:23:43.794-03:00  INFO 21928 --- [legal-rag-mvp] [      Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2025-06-13T20:23:43.921-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Starting RagDemoApplication using Java 21.0.7 with PID 21928 (started by alexv in /home/alexv/workspace/Rag_demo/rag-demo)
+2025-06-13T20:23:43.921-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-06-13T20:23:44.232-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-13T20:23:44.233-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 0 ms. Found 0 JPA repository interfaces.
+2025-06-13T20:23:44.300-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-13T20:23:44.302-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-13T20:23:44.302-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-13T20:23:44.312-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-13T20:23:44.312-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 390 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2025-06-13T20:23:44.409-03:00  WARN 21928 --- [legal-rag-mvp] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'dataSourceScriptDatabaseInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Failed to determine a suitable driver class
+2025-06-13T20:23:44.410-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-06-13T20:23:44.429-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-06-13T20:23:44.446-03:00 ERROR 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2025-06-13T20:24:05.879-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Starting RagDemoApplication using Java 21.0.7 with PID 21928 (/home/alexv/workspace/Rag_demo/rag-demo/target/classes started by alexv in /home/alexv/workspace/Rag_demo/rag-demo)
+2025-06-13T20:24:05.879-03:00 DEBUG 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Running with Spring Boot v3.5.0, Spring v6.2.7
+2025-06-13T20:24:05.879-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-06-13T20:24:06.225-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-13T20:24:06.226-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 0 ms. Found 0 JPA repository interfaces.
+2025-06-13T20:24:06.333-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-13T20:24:06.334-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-13T20:24:06.334-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-13T20:24:06.342-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-06-13T20:24:06.343-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 462 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2025-06-13T20:24:06.403-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2025-06-13T20:24:06.425-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection org.postgresql.jdbc.PgConnection@1428c791
+2025-06-13T20:24:06.426-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2025-06-13T20:24:06.438-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-13T20:24:06.440-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-13T20:24:06.446-03:00  WARN 21928 --- [legal-rag-mvp] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-13T20:24:06.447-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-4)']
+	Database driver: undefined/unknown
+	Database version: 16.8
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-13T20:24:06.452-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-13T20:24:06.467-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-13T20:24:06.467-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13T20:24:06.520-03:00  WARN 21928 --- [legal-rag-mvp] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-13T20:24:06.723-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-13T20:24:06.726-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2025-06-13T20:24:06.750-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-06-13T20:24:06.761-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Started RagDemoApplication in 0.905 seconds (process running for 364.137)
+2025-06-13T20:24:06.766-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   TaskExecutorConfigurations.AsyncConfigurerConfiguration matched:
+      - @ConditionalOnMissingBean (types: org.springframework.scheduling.annotation.AsyncConfigurer; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   TaskExecutorConfigurations.AsyncConfigurerConfiguration#applicationTaskExecutorAsyncConfigurer matched:
+      - @ConditionalOnMissingBean (types: org.springframework.scheduling.annotation.AsyncConfigurer; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   TaskExecutorConfigurations.TaskExecutorConfiguration matched:
+      - AnyNestedCondition 1 matched 1 did not; NestedCondition on TaskExecutorConfigurations.OnExecutorCondition.ModelCondition @ConditionalOnProperty (spring.task.execution.mode=force) did not find property 'spring.task.execution.mode'; NestedCondition on TaskExecutorConfigurations.OnExecutorCondition.ExecutorBeanCondition @ConditionalOnMissingBean (types: java.util.concurrent.Executor; SearchStrategy: all) did not find any beans (TaskExecutorConfigurations.OnExecutorCondition)
+
+   TaskExecutorConfigurations.TaskExecutorConfiguration#applicationTaskExecutor matched:
+      - @ConditionalOnThreading found PLATFORM (OnThreadingCondition)
+
+
+Negative matches:
+-----------------
+
+   TaskExecutorConfigurations.TaskExecutorConfiguration#applicationTaskExecutorVirtualThreads:
+      Did not match:
+         - @ConditionalOnThreading did not find VIRTUAL (OnThreadingCondition)
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2025-06-13T20:24:08.125-03:00  INFO 21928 --- [legal-rag-mvp] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 23 class path changes (23 additions, 0 deletions, 0 modifications)
+2025-06-13T20:24:08.126-03:00  INFO 21928 --- [legal-rag-mvp] [      Thread-21] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-13T20:24:08.127-03:00  INFO 21928 --- [legal-rag-mvp] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-06-13T20:24:08.129-03:00  INFO 21928 --- [legal-rag-mvp] [      Thread-21] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13T20:24:08.130-03:00  INFO 21928 --- [legal-rag-mvp] [      Thread-21] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2025-06-13T20:24:08.131-03:00  INFO 21928 --- [legal-rag-mvp] [      Thread-21] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2025-06-13T20:24:08.229-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Starting RagDemoApplication using Java 21.0.7 with PID 21928 (/home/alexv/workspace/Rag_demo/rag-demo/target/classes started by alexv in /home/alexv/workspace/Rag_demo/rag-demo)
+2025-06-13T20:24:08.229-03:00 DEBUG 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Running with Spring Boot v3.5.0, Spring v6.2.7
+2025-06-13T20:24:08.229-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-06-13T20:24:08.456-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-13T20:24:08.462-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 2 JPA repository interfaces.
+2025-06-13T20:24:08.540-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-13T20:24:08.540-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-13T20:24:08.540-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-13T20:24:08.548-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-06-13T20:24:08.548-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 318 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2025-06-13T20:24:08.591-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2025-06-13T20:24:08.610-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection org.postgresql.jdbc.PgConnection@6103c0a7
+2025-06-13T20:24:08.610-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2025-06-13T20:24:08.621-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-13T20:24:08.623-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-13T20:24:08.626-03:00  WARN 21928 --- [legal-rag-mvp] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-13T20:24:08.627-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-5)']
+	Database driver: undefined/unknown
+	Database version: 16.8
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-13T20:24:08.631-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-13T20:24:08.694-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-13T20:24:08.782-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13T20:24:08.791-03:00  WARN 21928 --- [legal-rag-mvp] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'documentController' defined in file [/home/alexv/workspace/Rag_demo/rag-demo/target/classes/com/atuhome/ragdemo/controller/DocumentController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'documentService': Lookup method resolution failed
+2025-06-13T20:24:08.791-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13T20:24:08.791-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2025-06-13T20:24:08.804-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2025-06-13T20:24:08.804-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-06-13T20:24:08.814-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-06-13T20:24:08.815-03:00 ERROR 21928 --- [legal-rag-mvp] [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'documentController' defined in file [/home/alexv/workspace/Rag_demo/rag-demo/target/classes/com/atuhome/ragdemo/controller/DocumentController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'documentService': Lookup method resolution failed
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1222) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1188) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1123) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987) ~[spring-context-6.2.7.jar:6.2.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.7.jar:6.2.7]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1362) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1351) ~[spring-boot-3.5.0.jar:3.5.0]
+	at com.atuhome.ragdemo.RagDemoApplication.main(RagDemoApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.5.0.jar:3.5.0]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'documentService': Lookup method resolution failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:498) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:368) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1334) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1229) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1682) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1628) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.7.jar:6.2.7]
+	... 24 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.atuhome.ragdemo.service.document.DocumentService] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@608b83d2]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-6.2.7.jar:6.2.7]
+	at org.springframework.util.ReflectionUtils.doWithLocalMethods(ReflectionUtils.java:320) ~[spring-core-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:476) ~[spring-beans-6.2.7.jar:6.2.7]
+	... 37 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: com/atuhome/ragdemo/exception/DocumentProcessingException
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3578) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2676) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-6.2.7.jar:6.2.7]
+	... 39 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.atuhome.ragdemo.exception.DocumentProcessingException
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:534) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:513) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.5.0.jar:3.5.0]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 43 common frames omitted
+
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2025-06-13T20:24:34.270-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Starting RagDemoApplication using Java 21.0.7 with PID 21928 (/home/alexv/workspace/Rag_demo/rag-demo/target/classes started by alexv in /home/alexv/workspace/Rag_demo/rag-demo)
+2025-06-13T20:24:34.270-03:00 DEBUG 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Running with Spring Boot v3.5.0, Spring v6.2.7
+2025-06-13T20:24:34.271-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-06-13T20:24:34.695-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-13T20:24:34.697-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 0 JPA repository interfaces.
+2025-06-13T20:24:34.802-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-13T20:24:34.803-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-13T20:24:34.803-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-13T20:24:34.815-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-06-13T20:24:34.815-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 543 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2025-06-13T20:24:34.905-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2025-06-13T20:24:34.934-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-6 - Added connection org.postgresql.jdbc.PgConnection@4128a575
+2025-06-13T20:24:34.935-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2025-06-13T20:24:34.959-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-13T20:24:34.962-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-13T20:24:34.969-03:00  WARN 21928 --- [legal-rag-mvp] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-13T20:24:34.970-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-6)']
+	Database driver: undefined/unknown
+	Database version: 16.8
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-13T20:24:34.979-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-13T20:24:35.002-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-13T20:24:35.003-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13T20:24:35.089-03:00  WARN 21928 --- [legal-rag-mvp] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-13T20:24:35.422-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-13T20:24:35.426-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2025-06-13T20:24:35.460-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-06-13T20:24:35.476-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Started RagDemoApplication in 1.225 seconds (process running for 392.852)
+2025-06-13T20:24:35.479-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-06-13T20:24:36.824-03:00  INFO 21928 --- [legal-rag-mvp] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 23 class path changes (23 additions, 0 deletions, 0 modifications)
+2025-06-13T20:24:36.825-03:00  INFO 21928 --- [legal-rag-mvp] [      Thread-32] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-13T20:24:36.826-03:00  INFO 21928 --- [legal-rag-mvp] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-06-13T20:24:36.827-03:00  INFO 21928 --- [legal-rag-mvp] [      Thread-32] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13T20:24:36.827-03:00  INFO 21928 --- [legal-rag-mvp] [      Thread-32] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2025-06-13T20:24:36.828-03:00  INFO 21928 --- [legal-rag-mvp] [      Thread-32] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2025-06-13T20:24:36.936-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Starting RagDemoApplication using Java 21.0.7 with PID 21928 (/home/alexv/workspace/Rag_demo/rag-demo/target/classes started by alexv in /home/alexv/workspace/Rag_demo/rag-demo)
+2025-06-13T20:24:36.936-03:00 DEBUG 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Running with Spring Boot v3.5.0, Spring v6.2.7
+2025-06-13T20:24:36.936-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-06-13T20:24:37.175-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-13T20:24:37.181-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 2 JPA repository interfaces.
+2025-06-13T20:24:37.261-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-13T20:24:37.262-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-13T20:24:37.262-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-13T20:24:37.270-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-06-13T20:24:37.270-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 333 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2025-06-13T20:24:37.317-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2025-06-13T20:24:37.336-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Added connection org.postgresql.jdbc.PgConnection@38dec109
+2025-06-13T20:24:37.336-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2025-06-13T20:24:37.346-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-13T20:24:37.348-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-13T20:24:37.352-03:00  WARN 21928 --- [legal-rag-mvp] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-13T20:24:37.353-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-7)']
+	Database driver: undefined/unknown
+	Database version: 16.8
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-13T20:24:37.357-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-13T20:24:37.413-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-13T20:24:37.514-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13T20:24:37.521-03:00  WARN 21928 --- [legal-rag-mvp] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'documentController' defined in file [/home/alexv/workspace/Rag_demo/rag-demo/target/classes/com/atuhome/ragdemo/controller/DocumentController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'documentService': Lookup method resolution failed
+2025-06-13T20:24:37.521-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13T20:24:37.521-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2025-06-13T20:24:37.531-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+2025-06-13T20:24:37.532-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-06-13T20:24:37.541-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-06-13T20:24:37.542-03:00 ERROR 21928 --- [legal-rag-mvp] [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'documentController' defined in file [/home/alexv/workspace/Rag_demo/rag-demo/target/classes/com/atuhome/ragdemo/controller/DocumentController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'documentService': Lookup method resolution failed
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1222) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1188) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1123) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987) ~[spring-context-6.2.7.jar:6.2.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.7.jar:6.2.7]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1362) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1351) ~[spring-boot-3.5.0.jar:3.5.0]
+	at com.atuhome.ragdemo.RagDemoApplication.main(RagDemoApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.5.0.jar:3.5.0]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'documentService': Lookup method resolution failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:498) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:368) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1334) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1229) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1682) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1628) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.7.jar:6.2.7]
+	... 24 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.atuhome.ragdemo.service.document.DocumentService] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@1fed9b5f]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-6.2.7.jar:6.2.7]
+	at org.springframework.util.ReflectionUtils.doWithLocalMethods(ReflectionUtils.java:320) ~[spring-core-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:476) ~[spring-beans-6.2.7.jar:6.2.7]
+	... 37 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: com/atuhome/ragdemo/exception/DocumentProcessingException
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3578) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2676) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-6.2.7.jar:6.2.7]
+	... 39 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.atuhome.ragdemo.exception.DocumentProcessingException
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:534) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:513) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.5.0.jar:3.5.0]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 43 common frames omitted
+
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2025-06-13T20:24:50.986-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Starting RagDemoApplication using Java 21.0.7 with PID 21928 (/home/alexv/workspace/Rag_demo/rag-demo/target/classes started by alexv in /home/alexv/workspace/Rag_demo/rag-demo)
+2025-06-13T20:24:50.986-03:00 DEBUG 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Running with Spring Boot v3.5.0, Spring v6.2.7
+2025-06-13T20:24:50.986-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-06-13T20:24:51.431-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-13T20:24:51.433-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 0 JPA repository interfaces.
+2025-06-13T20:24:51.567-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-13T20:24:51.568-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-13T20:24:51.568-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-13T20:24:51.581-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-06-13T20:24:51.582-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 594 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2025-06-13T20:24:51.669-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2025-06-13T20:24:51.698-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-8 - Added connection org.postgresql.jdbc.PgConnection@5839ccc8
+2025-06-13T20:24:51.699-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2025-06-13T20:24:51.710-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-13T20:24:51.712-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-13T20:24:51.718-03:00  WARN 21928 --- [legal-rag-mvp] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-13T20:24:51.719-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-8)']
+	Database driver: undefined/unknown
+	Database version: 16.8
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-13T20:24:51.725-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-13T20:24:51.742-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-13T20:24:51.742-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13T20:24:51.797-03:00  WARN 21928 --- [legal-rag-mvp] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-13T20:24:52.063-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-13T20:24:52.068-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2025-06-13T20:24:52.095-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-06-13T20:24:52.112-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Started RagDemoApplication in 1.152 seconds (process running for 409.488)
+2025-06-13T20:24:52.116-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-06-13T20:24:53.466-03:00  INFO 21928 --- [legal-rag-mvp] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 23 class path changes (23 additions, 0 deletions, 0 modifications)
+2025-06-13T20:24:53.467-03:00  INFO 21928 --- [legal-rag-mvp] [      Thread-43] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-13T20:24:53.468-03:00  INFO 21928 --- [legal-rag-mvp] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-06-13T20:24:53.469-03:00  INFO 21928 --- [legal-rag-mvp] [      Thread-43] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13T20:24:53.470-03:00  INFO 21928 --- [legal-rag-mvp] [      Thread-43] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2025-06-13T20:24:53.471-03:00  INFO 21928 --- [legal-rag-mvp] [      Thread-43] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2025-06-13T20:24:53.590-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Starting RagDemoApplication using Java 21.0.7 with PID 21928 (/home/alexv/workspace/Rag_demo/rag-demo/target/classes started by alexv in /home/alexv/workspace/Rag_demo/rag-demo)
+2025-06-13T20:24:53.590-03:00 DEBUG 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Running with Spring Boot v3.5.0, Spring v6.2.7
+2025-06-13T20:24:53.590-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-06-13T20:24:53.889-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-13T20:24:53.896-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 2 JPA repository interfaces.
+2025-06-13T20:24:53.991-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-13T20:24:53.991-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-13T20:24:53.991-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-13T20:24:54.000-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-06-13T20:24:54.000-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 409 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2025-06-13T20:24:54.051-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
+2025-06-13T20:24:54.067-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-9 - Added connection org.postgresql.jdbc.PgConnection@1a1f7508
+2025-06-13T20:24:54.067-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
+2025-06-13T20:24:54.084-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-13T20:24:54.086-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-13T20:24:54.090-03:00  WARN 21928 --- [legal-rag-mvp] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-13T20:24:54.091-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-9)']
+	Database driver: undefined/unknown
+	Database version: 16.8
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-13T20:24:54.095-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-13T20:24:54.157-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-13T20:24:54.268-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13T20:24:54.277-03:00  WARN 21928 --- [legal-rag-mvp] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'documentController' defined in file [/home/alexv/workspace/Rag_demo/rag-demo/target/classes/com/atuhome/ragdemo/controller/DocumentController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'documentService': Lookup method resolution failed
+2025-06-13T20:24:54.277-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13T20:24:54.277-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
+2025-06-13T20:24:54.315-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.
+2025-06-13T20:24:54.315-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-06-13T20:24:54.324-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-06-13T20:24:54.325-03:00 ERROR 21928 --- [legal-rag-mvp] [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'documentController' defined in file [/home/alexv/workspace/Rag_demo/rag-demo/target/classes/com/atuhome/ragdemo/controller/DocumentController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'documentService': Lookup method resolution failed
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1222) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1188) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1123) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987) ~[spring-context-6.2.7.jar:6.2.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.7.jar:6.2.7]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1362) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1351) ~[spring-boot-3.5.0.jar:3.5.0]
+	at com.atuhome.ragdemo.RagDemoApplication.main(RagDemoApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.5.0.jar:3.5.0]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'documentService': Lookup method resolution failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:498) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:368) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1334) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1229) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1682) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1628) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.7.jar:6.2.7]
+	... 24 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.atuhome.ragdemo.service.document.DocumentService] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@1621937c]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-6.2.7.jar:6.2.7]
+	at org.springframework.util.ReflectionUtils.doWithLocalMethods(ReflectionUtils.java:320) ~[spring-core-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:476) ~[spring-beans-6.2.7.jar:6.2.7]
+	... 37 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: com/atuhome/ragdemo/exception/DocumentProcessingException
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3578) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2676) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-6.2.7.jar:6.2.7]
+	... 39 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.atuhome.ragdemo.exception.DocumentProcessingException
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:534) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:513) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.5.0.jar:3.5.0]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 43 common frames omitted
+
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2025-06-13T20:25:13.775-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Starting RagDemoApplication using Java 21.0.7 with PID 21928 (/home/alexv/workspace/Rag_demo/rag-demo/target/classes started by alexv in /home/alexv/workspace/Rag_demo/rag-demo)
+2025-06-13T20:25:13.775-03:00 DEBUG 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Running with Spring Boot v3.5.0, Spring v6.2.7
+2025-06-13T20:25:13.775-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-06-13T20:25:14.316-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-13T20:25:14.320-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 0 JPA repository interfaces.
+2025-06-13T20:25:14.528-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-13T20:25:14.529-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-13T20:25:14.529-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-13T20:25:14.545-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.a.c.c.C.[Tomcat-4].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-06-13T20:25:14.545-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 768 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2025-06-13T20:25:14.662-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Starting...
+2025-06-13T20:25:14.694-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-10 - Added connection org.postgresql.jdbc.PgConnection@725c4b8d
+2025-06-13T20:25:14.694-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Start completed.
+2025-06-13T20:25:14.716-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-13T20:25:14.718-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-13T20:25:14.724-03:00  WARN 21928 --- [legal-rag-mvp] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-13T20:25:14.725-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-10)']
+	Database driver: undefined/unknown
+	Database version: 16.8
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-13T20:25:14.732-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-13T20:25:14.755-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-13T20:25:14.755-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13T20:25:14.841-03:00  WARN 21928 --- [legal-rag-mvp] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-13T20:25:15.195-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-13T20:25:15.201-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2025-06-13T20:25:15.240-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-06-13T20:25:15.261-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Started RagDemoApplication in 1.512 seconds (process running for 432.637)
+2025-06-13T20:25:15.266-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-06-13T20:25:17.005-03:00  INFO 21928 --- [legal-rag-mvp] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 59 class path changes (59 additions, 0 deletions, 0 modifications)
+2025-06-13T20:25:17.007-03:00  INFO 21928 --- [legal-rag-mvp] [      Thread-54] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-13T20:25:17.007-03:00  INFO 21928 --- [legal-rag-mvp] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-06-13T20:25:17.009-03:00  INFO 21928 --- [legal-rag-mvp] [      Thread-54] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13T20:25:17.010-03:00  INFO 21928 --- [legal-rag-mvp] [      Thread-54] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown initiated...
+2025-06-13T20:25:17.011-03:00  INFO 21928 --- [legal-rag-mvp] [      Thread-54] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown completed.
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2025-06-13T20:25:17.095-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Starting RagDemoApplication using Java 21.0.7 with PID 21928 (/home/alexv/workspace/Rag_demo/rag-demo/target/classes started by alexv in /home/alexv/workspace/Rag_demo/rag-demo)
+2025-06-13T20:25:17.095-03:00 DEBUG 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Running with Spring Boot v3.5.0, Spring v6.2.7
+2025-06-13T20:25:17.095-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-06-13T20:25:17.430-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-13T20:25:17.441-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 3 JPA repository interfaces.
+2025-06-13T20:25:17.562-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-13T20:25:17.564-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-13T20:25:17.564-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-13T20:25:17.574-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.a.c.c.C.[Tomcat-4].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-06-13T20:25:17.574-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 478 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2025-06-13T20:25:17.644-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Starting...
+2025-06-13T20:25:17.665-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-11 - Added connection org.postgresql.jdbc.PgConnection@3d406590
+2025-06-13T20:25:17.665-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Start completed.
+2025-06-13T20:25:17.680-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-13T20:25:17.681-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-13T20:25:17.686-03:00  WARN 21928 --- [legal-rag-mvp] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-13T20:25:17.686-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-11)']
+	Database driver: undefined/unknown
+	Database version: 16.8
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-13T20:25:17.690-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-13T20:25:17.779-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-13T20:25:17.897-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13T20:25:18.007-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] c.a.r.s.document.FileStorageService      : Directorio de uploads creado/verificado: /home/alexv/workspace/Rag_demo/rag-demo/uploads
+2025-06-13T20:25:18.160-03:00  WARN 21928 --- [legal-rag-mvp] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-13T20:25:18.350-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-13T20:25:18.353-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2025-06-13T20:25:18.378-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-06-13T20:25:18.389-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] com.atuhome.ragdemo.RagDemoApplication   : Started RagDemoApplication in 1.317 seconds (process running for 435.765)
+2025-06-13T20:25:18.391-03:00  INFO 21928 --- [legal-rag-mvp] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   OllamaEmbeddingService matched:
+      - @ConditionalOnProperty (app.embedding.service=ollama) matched (OnPropertyCondition)
+
+
+Negative matches:
+-----------------
+
+   TaskExecutorConfigurations.TaskExecutorConfiguration:
+      Did not match:
+         - AnyNestedCondition 0 matched 2 did not; NestedCondition on TaskExecutorConfigurations.OnExecutorCondition.ModelCondition @ConditionalOnProperty (spring.task.execution.mode=force) did not find property 'spring.task.execution.mode'; NestedCondition on TaskExecutorConfigurations.OnExecutorCondition.ExecutorBeanCondition @ConditionalOnMissingBean (types: java.util.concurrent.Executor; SearchStrategy: all) found beans of type 'java.util.concurrent.Executor' taskExecutor (TaskExecutorConfigurations.OnExecutorCondition)
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  07:43 min
+[INFO] Finished at: 2025-06-13T20:25:43-03:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:3.5.0:run (default-cli) on project rag-demo: Process terminated with exit code: 137 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
