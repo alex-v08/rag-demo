@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS document_chunks (
     document_id UUID NOT NULL REFERENCES documents(id) ON DELETE CASCADE,
     chunk_index INTEGER NOT NULL,
     content TEXT NOT NULL,
-    embedding vector(384), -- Dimensión para all-MiniLM-L6-v2
+    embedding vector(1024), -- Dimensión para bge-m3
     char_start INTEGER,
     char_end INTEGER,
     page_number INTEGER,

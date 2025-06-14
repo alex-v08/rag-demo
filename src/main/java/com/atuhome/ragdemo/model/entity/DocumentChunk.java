@@ -1,5 +1,6 @@
 package com.atuhome.ragdemo.model.entity;
 
+import com.atuhome.ragdemo.config.PostgreSQLVectorType;
 import io.hypersistence.utils.hibernate.type.json.JsonBinaryType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -38,8 +39,9 @@ public class DocumentChunk {
     @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
     
-    @Column(columnDefinition = "TEXT")
-    private String embedding;
+    @Type(PostgreSQLVectorType.class)
+    @Column(columnDefinition = "vector(1024)")
+    private float[] embedding;
     
     private Integer charStart;
     private Integer charEnd;
@@ -52,47 +54,4 @@ public class DocumentChunk {
     @CreationTimestamp
     private LocalDateTime createdAt;
     
-    // Helper methods for embedding conversion
-    public void setEmbeddingFromFloatArray(float[] embeddingArray) {
-        if (embeddingArray == null) {
-            this.embedding = null;
-            return;
-        }
-        
-        StringBuilder sb = new StringBuilder();
-        sb.append("[");
-        for (int i = 0; i < embeddingArray.length; i++) {
-            if (i > 0) sb.append(",");
-            sb.append(embeddingArray[i]);
-        }
-        sb.append("]");
-        this.embedding = sb.toString();
-    }
-    
-    public float[] getEmbeddingAsFloatArray() {
-        if (embedding == null || embedding.trim().isEmpty()) {
-            return null;
-        }
-        
-        try {
-            // Parse the vector string format: [1.0, 2.0, 3.0]
-            String value = embedding.trim();
-            if (value.startsWith("[") && value.endsWith("]")) {
-                value = value.substring(1, value.length() - 1);
-            }
-            
-            if (value.isEmpty()) {
-                return new float[0];
-            }
-            
-            String[] parts = value.split(",");
-            float[] result = new float[parts.length];
-            for (int i = 0; i < parts.length; i++) {
-                result[i] = Float.parseFloat(parts[i].trim());
-            }
-            return result;
-        } catch (Exception e) {
-            throw new RuntimeException("Error parsing embedding string: " + embedding, e);
-        }
-    }
 }

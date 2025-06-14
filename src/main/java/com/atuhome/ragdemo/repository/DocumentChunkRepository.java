@@ -19,13 +19,13 @@ public interface DocumentChunkRepository extends JpaRepository<DocumentChunk, UU
     
     @Query(value = """
         SELECT c FROM DocumentChunk c 
-        WHERE c.embedding IS NOT NULL AND c.embedding != ''
+        WHERE c.embedding IS NOT NULL
         ORDER BY c.id
         """)
     List<DocumentChunk> findAllWithEmbeddings();
     
     @Modifying
-    @Query(value = "UPDATE document_chunks SET embedding = :embedding WHERE id = :id", nativeQuery = true)
+    @Query(value = "UPDATE document_chunks SET embedding = :embedding::vector WHERE id = :id", nativeQuery = true)
     void updateEmbedding(@Param("id") UUID id, @Param("embedding") String embedding);
     
     @Query("SELECT COUNT(c) FROM DocumentChunk c WHERE c.embedding IS NULL")

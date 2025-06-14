@@ -12,28 +12,7 @@ public class AntiHallucinationService {
     private static final Logger log = LoggerFactory.getLogger(AntiHallucinationService.class);
 
     private static final String STRICT_PROMPT_TEMPLATE = """
-        INSTRUCCIONES CRÍTICAS - DEBES SEGUIRLAS EXACTAMENTE:
-        
-        1. Eres un asistente legal que SOLO puede responder basándose 
-           en el contexto proporcionado a continuación.
-        
-        2. REGLAS ABSOLUTAS:
-           - Si la información NO está en el contexto, debes responder:
-             "No encontré información sobre este tema en los documentos disponibles."
-           - NUNCA inventes, supongas o hagas inferencias más allá del contexto
-           - NUNCA uses conocimiento externo al contexto proporcionado
-           - SIEMPRE cita la fuente usando [Documento: nombre_archivo]
-        
-        3. FORMATO DE RESPUESTA:
-           - Responde de manera clara y concisa
-           - Usa viñetas para múltiples puntos si es necesario
-           - Incluye citas después de cada afirmación principal
-           - Si hay múltiples documentos relevantes, menciona todos
-        
-        4. VALIDACIONES:
-           - Solo responde lo que está explícitamente mencionado en el contexto
-           - Si el contexto es insuficiente, admítelo claramente
-           - No elabores más allá de lo que dice el texto
+        Eres un asistente que ayuda a responder preguntas basándose en documentos proporcionados.
         
         CONTEXTO DE LOS DOCUMENTOS:
         {context}
@@ -41,7 +20,13 @@ public class AntiHallucinationService {
         PREGUNTA DEL USUARIO:
         {question}
         
-        RESPUESTA (recuerda seguir todas las reglas):
+        INSTRUCCIONES:
+        - Responde la pregunta basándote en la información del contexto anterior
+        - Si la información está en el contexto, úsala para dar una respuesta completa
+        - Cita las fuentes usando [Documento: nombre_archivo]
+        - Si realmente no hay información relevante en el contexto, entonces di que no la encontraste
+        
+        RESPUESTA:
         """;
 
     private static final Pattern CITATION_PATTERN = Pattern.compile("\\[Documento:.*?\\]");

@@ -62,7 +62,7 @@ public class OllamaEmbeddingService {
                 DocumentChunk chunk = chunks.get(i);
                 float[] embedding = response.getResults().get(i).getOutput();
                 
-                chunk.setEmbeddingFromFloatArray(embedding);
+                chunk.setEmbedding(embedding);
                 
                 log.debug("Embedding generado para chunk {}: dimensión {}", 
                         chunk.getId(), embedding.length);
@@ -123,7 +123,7 @@ public class OllamaEmbeddingService {
             // Calculate similarity for each chunk
             List<DocumentChunk> similarChunks = allChunks.stream()
                     .filter(chunk -> {
-                        boolean hasEmbedding = chunk.getEmbedding() != null && !chunk.getEmbedding().trim().isEmpty();
+                        boolean hasEmbedding = chunk.getEmbedding() != null && chunk.getEmbedding().length > 0;
                         if (!hasEmbedding) {
                             log.warn("Chunk {} no tiene embedding", chunk.getId());
                         }
@@ -131,7 +131,7 @@ public class OllamaEmbeddingService {
                     })
                     .map(chunk -> {
                         try {
-                            float[] chunkEmbedding = chunk.getEmbeddingAsFloatArray();
+                            float[] chunkEmbedding = chunk.getEmbedding();
                             if (chunkEmbedding == null) {
                                 log.warn("Chunk {} tiene embedding null después de conversión", chunk.getId());
                                 return null;

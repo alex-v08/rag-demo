@@ -67,25 +67,8 @@ services:
       - rag-network
 
   # Service to initialize Ollama models
-  ollama-init:
-    image: ollama/ollama:latest
-    container_name: rag-ollama-init
-    depends_on:
-      ollama:
-        condition: service_healthy
-    entrypoint: /bin/sh
-    command: >
-      -c "
-      echo 'Pulling llama3.2:latest model...'
-      ollama pull llama3.2:latest
-      echo 'Pulling bge-m3:latest model...'
-      ollama pull bge-m3:latest
-      echo 'Models initialization completed!'
-      "
-    environment:
-      - OLLAMA_HOST=http://ollama:11434
-    networks:
-      - rag-network
+
+
 
 volumes:
   postgres_data:

@@ -6,11 +6,11 @@ import com.atuhome.ragdemo.model.dto.response.SearchResult;
 import com.atuhome.ragdemo.model.entity.QAHistory;
 import com.atuhome.ragdemo.repository.QAHistoryRepository;
 import com.atuhome.ragdemo.service.ai.AntiHallucinationService;
+import com.atuhome.ragdemo.service.ai.DynamicChatService;
+import com.atuhome.ragdemo.service.ai.ModelManagementService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.ai.chat.client.ChatClient;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,11 +29,9 @@ public class RagService {
     private final SemanticSearchService semanticSearchService;
     private final ContextBuilderService contextBuilderService;
     private final AntiHallucinationService antiHallucinationService;
-    private final ChatClient chatClient;
+    private final DynamicChatService dynamicChatService;
+    private final ModelManagementService modelManagementService;
     private final QAHistoryRepository qaHistoryRepository;
-
-    @Value("${spring.ai.ollama.chat.options.model:deepseek-r1:latest}")
-    private String modelName;
 
     @Transactional
     public AnswerResponse processQuestion(String question) {
@@ -59,8 +57,11 @@ public class RagService {
             // 3. Construir contexto
             String context = contextBuilderService.buildContext(searchResults);
             
-            // 4. Crear prompt con anti-alucinación
-            String prompt = antiHallucinationService.createStrictPrompt(question, context);
+            // 4. Crear prompt optimizado
+            String prompt = "INSTRUCCIONES: Analiza la información proporcionada y responde directamente la pregunta.\n\n" +
+                          "INFORMACIÓN DE DOCUMENTOS:\n" + context + "\n\n" +
+                          "PREGUNTA: " + question + "\n\n" +
+                          "ANÁLISIS Y RESPUESTA DIRECTA:";
             
             // 5. Generar respuesta con LLM
             String answer = generateAnswer(prompt);
@@ -81,7 +82,7 @@ public class RagService {
                     .sources(searchResults)
                     .responseTimeMs(responseTime)
                     .timestamp(LocalDateTime.now())
-                    .modelUsed(modelName)
+                    .modelUsed(modelManagementService.getCurrentChatModel())
                     .build();
             
             // 9. Guardar en historial
@@ -114,9 +115,12 @@ public class RagService {
                 return createNoResultsResponse(question, startTime);
             }
             
-            // Continuar con el procesamiento normal
+            // Continuar con el procesamiento normal  
             String context = contextBuilderService.buildContext(searchResults);
-            String prompt = antiHallucinationService.createStrictPrompt(question, context);
+            String prompt = "INSTRUCCIONES: Analiza la información proporcionada y responde directamente la pregunta.\n\n" +
+                          "INFORMACIÓN DE DOCUMENTOS:\n" + context + "\n\n" +
+                          "PREGUNTA: " + question + "\n\n" +
+                          "ANÁLISIS Y RESPUESTA DIRECTA:";
             String answer = generateAnswer(prompt);
             
             if (!antiHallucinationService.validateResponse(answer)) {
@@ -131,7 +135,7 @@ public class RagService {
                     .sources(searchResults)
                     .responseTimeMs(responseTime)
                     .timestamp(LocalDateTime.now())
-                    .modelUsed(modelName)
+                    .modelUsed(modelManagementService.getCurrentChatModel())
                     .build();
             
             saveToHistory(response, context);
@@ -149,10 +153,7 @@ public class RagService {
         try {
             log.debug("Generando respuesta con LLM");
             
-            String answer = chatClient.prompt()
-                    .user(prompt)
-                    .call()
-                    .content();
+            String answer = dynamicChatService.chat(prompt);
             
             if (answer == null || answer.trim().isEmpty()) {
                 throw new RagException("El modelo no generó una respuesta");
@@ -202,7 +203,7 @@ public class RagService {
                 .sources(Collections.emptyList())
                 .responseTimeMs(responseTime)
                 .timestamp(LocalDateTime.now())
-                .modelUsed(modelName)
+                .modelUsed(modelManagementService.getCurrentChatModel())
                 .build();
     }
 
@@ -216,7 +217,7 @@ public class RagService {
                 .sources(Collections.emptyList())
                 .responseTimeMs(responseTime)
                 .timestamp(LocalDateTime.now())
-                .modelUsed(modelName)
+                .modelUsed(modelManagementService.getCurrentChatModel())
                 .build();
     }
 
@@ -227,7 +228,7 @@ public class RagService {
                 .sources(Collections.emptyList())
                 .responseTimeMs(responseTime)
                 .timestamp(LocalDateTime.now())
-                .modelUsed(modelName)
+                .modelUsed(modelManagementService.getCurrentChatModel())
                 .build();
     }
 

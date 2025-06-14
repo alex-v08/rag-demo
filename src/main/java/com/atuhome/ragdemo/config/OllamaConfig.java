@@ -9,7 +9,12 @@ import org.springframework.context.annotation.Configuration;
 public class OllamaConfig {
 
     @Bean
-    public ChatClient chatClient(ChatModel chatModel) {
-        return ChatClient.builder(chatModel).build();
+    public ChatClient.Builder chatClientBuilder(ChatModel chatModel) {
+        return ChatClient.builder(chatModel);
+    }
+    
+    @Bean
+    public ChatClient chatClient(ChatClient.Builder builder) {
+        return builder.build();
     }
 }
