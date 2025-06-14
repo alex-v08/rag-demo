@@ -11,6 +11,7 @@ import com.atuhome.ragdemo.repository.DocumentChunkRepository;
 import com.atuhome.ragdemo.service.ai.OllamaEmbeddingService;
 import com.atuhome.ragdemo.service.processing.DocumentChunker;
 import com.atuhome.ragdemo.service.processing.SimplePdfTextExtractor;
+import com.atuhome.ragdemo.service.processing.DocumentTextExtractor;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,6 +39,7 @@ public class DocumentService {
     private final DocumentChunkRepository chunkRepository;
     private final FileStorageService fileStorageService;
     private final SimplePdfTextExtractor pdfTextExtractor;
+    private final DocumentTextExtractor documentTextExtractor;
     private final DocumentChunker documentChunker;
     private final OllamaEmbeddingService embeddingService;
 
@@ -46,9 +48,9 @@ public class DocumentService {
         log.info("Iniciando carga de documento: {}", file.getOriginalFilename());
         
         try {
-            // Validar PDF
-            if (!pdfTextExtractor.validatePdf(file)) {
-                throw new DocumentProcessingException("El archivo PDF no es válido o no se puede procesar");
+            // Validar archivo (soporte para PDF, TXT, MD)
+            if (!documentTextExtractor.validateFile(file)) {
+                throw new DocumentProcessingException("El archivo no es válido o no se puede procesar");
             }
             
             // Calcular hash para detectar duplicados
@@ -115,7 +117,7 @@ public class DocumentService {
             
             // Extraer texto
             log.debug("Extrayendo texto del documento {}", freshDocument.getId());
-            SimplePdfTextExtractor.ExtractedText extractedText = pdfTextExtractor.extractText(file);
+            SimplePdfTextExtractor.ExtractedText extractedText = documentTextExtractor.extractText(file);
             
             // Actualizar metadatos del documento
             freshDocument.setMetadata(extractedText.getMetadata());

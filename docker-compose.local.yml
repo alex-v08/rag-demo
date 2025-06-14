@@ -1,0 +1,71 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: rag-postgres-local
+    environment:
+      POSTGRES_DB: legal_rag
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data_local_v2:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - rag-network-local
+
+  # Aplicación RAG usando la imagen de Docker Hub
+  rag-app:
+    image: atuhome/rag-demo:v0.02
+    container_name: rag-demo-app-local
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/legal_rag
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SPRING_AI_OLLAMA_BASE_URL=http://host.docker.internal:11434  # Ollama local en tu PC
+      - SPRING_PROFILES_ACTIVE=docker
+    volumes:
+      - ./uploads:/app/uploads  # Usar directorio local para uploads
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+    networks:
+      - rag-network-local
+    extra_hosts:
+      - "host.docker.internal:host-gateway"  # Para conectar con Ollama en el host
+
+  # Opcional: PgAdmin para administrar la base de datos
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: rag-pgadmin-local
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "8081:80"
+    depends_on:
+      - postgres
+    networks:
+      - rag-network-local
+    profiles:
+      - tools
+
+volumes:
+  postgres_data_local_v2:
+
+networks:
+  rag-network-local:
+    driver: bridge

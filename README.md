@@ -293,12 +293,3 @@ Las contribuciones son bienvenidas. Por favor:
 4. Push a la rama (`git push origin feature/AmazingFeature`)
 5. Abre un Pull Request
 
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT - ver el archivo LICENSE para más detalles.
-
-## 🙏 Agradecimientos
-
-- Ollama por proporcionar modelos de IA locales
-- Spring AI por la integración simplificada
-- pgvector por el soporte de vectores en PostgreSQL
