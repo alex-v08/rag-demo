@@ -1,295 +1,531 @@
-# RAG Demo - Sistema de Retrieval-Augmented Generation
+# RAG Demo - Sistema de Recuperación y Generación Aumentada
 
-Sistema de preguntas y respuestas basado en documentos PDF usando RAG (Retrieval-Augmented Generation) con Spring Boot, PostgreSQL con pgvector y Ollama.
+Un sistema completo de RAG (Retrieval-Augmented Generation) construido con Spring Boot 3.5 y Java 21, que utiliza Ollama para modelos de lenguaje local y PostgreSQL con pgvector para almacenamiento y búsqueda de vectores.
 
-## 🚀 Características
+## 📖 Índice
 
-- **Carga de documentos PDF**: Extracción automática de texto y procesamiento
-- **Búsqueda semántica**: Usando embeddings y similitud vectorial
-- **Respuestas contextualizadas**: Generación de respuestas basadas en el contenido de los documentos
-- **API REST**: Endpoints completos con documentación Swagger
-- **Persistencia**: PostgreSQL con extensión pgvector para almacenamiento de embeddings
+- [Características Actuales](#-características-actuales)
+- [Arquitectura del Sistema](#-arquitectura-del-sistema)
+- [Instalación y Configuración](#-instalación-y-configuración)
+- [Uso del Sistema](#-uso-del-sistema)
+- [Nuevas Características Propuestas](#-nuevas-características-propuestas)
+- [Mejoras Potenciales](#-mejoras-potenciales)
+- [API Endpoints](#-api-endpoints)
+- [Contribuir al Proyecto](#-contribuir-al-proyecto)
 
-## 📋 Pre-requisitos
+## 🚀 Características Actuales
 
-### Opción 1: Ejecución Local (Recomendado para desarrollo)
+### 1. **Gestión de Documentos**
+- **Carga de documentos**: Soporte para PDF y archivos de texto
+- **Procesamiento automático**: Extracción de texto y división en chunks
+- **Almacenamiento**: Base de datos PostgreSQL con metadatos completos
+- **Estado de procesamiento**: Seguimiento del estado de cada documento
 
-- **Java 21** o superior
-- **PostgreSQL 16** con extensión pgvector
-- **Maven 3.8+**
-- **Ollama** instalado localmente con los modelos requeridos
-
-### Opción 2: Ejecución con Docker
-
-- **Docker** y **Docker Compose**
-- Los modelos de Ollama se descargan automáticamente
-
-## 🛠️ Instalación de Ollama (Ejecución Local)
-
-### 1. Instalar Ollama
-
-**Linux/WSL:**
-```bash
-curl -fsSL https://ollama.com/install.sh | sh
+**Implementación clave:**
+```java
+@Service
+public class DocumentService {
+    public DocumentResponse uploadDocument(MultipartFile file) {
+        // Validación, almacenamiento y procesamiento asíncrono
+    }
+}
 ```
 
-**macOS:**
-```bash
-brew install ollama
+### 2. **Sistema de Embeddings Vectoriales**
+- **Modelo**: BGE-M3 (1024 dimensiones) a través de Ollama
+- **Almacenamiento**: PostgreSQL con extensión pgvector
+- **Búsqueda semántica**: Cosine similarity para encontrar chunks relevantes
+- **Procesamiento asíncrono**: Generación de embeddings en background
+
+**Configuración:**
+```properties
+spring.ai.ollama.embedding.options.model=bge-m3:latest
+app.rag.embedding.dimension=1024
+app.rag.search.similarity-threshold=0.2
 ```
 
-**Windows:**
-Descargar desde [ollama.com](https://ollama.com/download)
+### 3. **Motor de Búsqueda Semántica**
+- **Algoritmo**: Búsqueda por similitud de coseno
+- **Filtros configurables**: Umbral de similitud y número máximo de resultados
+- **Ranking de resultados**: Ordenamiento por relevancia
+- **Contexto enriquecido**: Metadatos de documentos incluidos
 
-### 2. Iniciar el servicio Ollama
+**Características:**
+- Threshold de similitud ajustable (default: 0.2)
+- Máximo 5 resultados por defecto
+- Información de chunk, documento y página
 
-```bash
-ollama serve
+### 4. **Sistema de Respuestas con LLM**
+- **Modelos soportados**: Todos los modelos disponibles en Ollama local
+- **Cambio dinámico**: API para cambiar modelos en tiempo real
+- **Prompts optimizados**: Sistema de prompts balanceado para respuestas precisas
+- **Anti-alucinación**: Validación de respuestas y fallbacks
+
+**Modelos disponibles:**
+- llama3.2:latest (default)
+- deepseek-r1:latest
+- Cualquier modelo instalado en Ollama
+
+### 5. **API RESTful Completa**
+- **Swagger UI**: Documentación interactiva en `/swagger-ui.html`
+- **Endpoints organizados**: Separados por funcionalidad
+- **Manejo de errores**: Respuestas estructuradas y logging detallado
+- **CORS configurado**: Soporte para frontend
+
+### 6. **Gestión de Modelos Dinámicos**
+- **Lista de modelos**: Obtener todos los modelos disponibles en Ollama
+- **Cambio en tiempo real**: Switching entre modelos sin reiniciar
+- **Información de modelos**: Tamaño, fecha de modificación, estado activo
+- **Filtrado inteligente**: Separación entre modelos de chat y embeddings
+
+### 7. **Monitorización y Health Checks**
+- **Spring Actuator**: Endpoints de salud y métricas
+- **Logging detallado**: Múltiples niveles configurables
+- **Estadísticas del sistema**: Conteo de documentos, chunks y tiempo de respuesta
+- **Métricas de rendimiento**: Tiempo de procesamiento por operación
+
+## 🏗️ Arquitectura del Sistema
+
+```
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│   Frontend/     │    │   Spring Boot    │    │   PostgreSQL    │
+│   API Client    │◄──►│   Application    │◄──►│   + pgvector    │
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+                              │
+                              ▼
+                       ┌──────────────────┐
+                       │   Ollama Local   │
+                       │   (LLM + BGE-M3) │
+                       └──────────────────┘
 ```
 
-### 3. Descargar los modelos requeridos
+### Componentes Principales:
 
+1. **Controllers**: Manejo de requests HTTP
+2. **Services**: Lógica de negocio (RAG, Document, AI)
+3. **Repositories**: Acceso a datos con JPA
+4. **Entities**: Modelos de datos (Document, DocumentChunk, QAHistory)
+5. **DTOs**: Objetos de transferencia de datos
+
+## 📦 Instalación y Configuración
+
+### Prerrequisitos
+- Java 21+
+- Maven 3.8+
+- PostgreSQL 14+ con pgvector
+- Ollama instalado localmente
+- Docker (opcional, para PostgreSQL)
+
+### 1. Configuración de la Base de Datos
+
+**Opción A: Docker (Recomendado)**
 ```bash
-# Modelo de chat/generación
-ollama pull llama3.2:latest
-
-# Modelo de embeddings
-ollama pull bge-m3:latest
+docker-compose -f docker-compose-local.yml up -d
 ```
 
-### 4. Verificar instalación
-
-```bash
-# Listar modelos instalados
-ollama list
-
-# Verificar que el servicio esté funcionando
-curl http://localhost:11434/api/version
-```
-
-## 🚀 Ejecución
-
-### Opción 1: Ejecución Local
-
-#### 1. Configurar PostgreSQL con pgvector
-
+**Opción B: PostgreSQL local**
 ```sql
--- Crear base de datos
 CREATE DATABASE legal_rag;
-
--- Conectarse a la base de datos
-\c legal_rag;
-
--- Instalar extensión pgvector
 CREATE EXTENSION IF NOT EXISTS vector;
 ```
 
-#### 2. Configurar application.properties
+### 2. Configuración de Ollama
+
+```bash
+# Instalar modelos necesarios
+ollama pull llama3.2:latest
+ollama pull bge-m3:latest
+ollama pull deepseek-r1:latest  # Opcional
+```
+
+### 3. Configuración de la Aplicación
+
+Editar `src/main/resources/application.properties`:
 
 ```properties
 # Base de datos
 spring.datasource.url=jdbc:postgresql://localhost:5432/legal_rag
 spring.datasource.username=postgres
-spring.datasource.password=tu_password
+spring.datasource.password=postgres
 
-# Ollama (debe estar ejecutándose localmente)
+# Ollama
 spring.ai.ollama.base-url=http://localhost:11434
+spring.ai.ollama.chat.options.model=llama3.2:latest
+spring.ai.ollama.embedding.options.model=bge-m3:latest
 ```
 
-#### 3. Ejecutar la aplicación
+### 4. Ejecución
 
 ```bash
-# Compilar y ejecutar
+# Desarrollo
 ./mvnw spring-boot:run
 
-# O construir JAR y ejecutar
+# Producción
 ./mvnw clean package
 java -jar target/rag-demo-0.0.1-SNAPSHOT.jar
 ```
 
-### Opción 2: Ejecución con Docker (Más simple)
+La aplicación estará disponible en: http://localhost:8080/swagger-ui.html
 
+## 🎯 Uso del Sistema
+
+### 1. Subir Documentos
 ```bash
-# Descargar docker-compose.yml
-curl -O https://raw.githubusercontent.com/atuhome/rag-demo/main/docker-compose.yml
-
-# Iniciar todos los servicios
-docker-compose up -d
-
-# Ver logs
-docker-compose logs -f
+curl -X POST "http://localhost:8080/api/documents/upload" \
+  -F "file=@documento.pdf"
 ```
 
-**Nota**: Docker descargará automáticamente los modelos de Ollama, esto puede tomar varios minutos en el primer inicio.
-
-## 📝 Uso del Sistema
-
-### 1. Verificar que el sistema esté funcionando
-
+### 2. Hacer Preguntas
 ```bash
-curl http://localhost:8080/actuator/health
-```
-
-### 2. Cargar un documento PDF
-
-```bash
-curl -X 'POST' \
-  'http://localhost:8080/api/documents/upload' \
-  -H 'accept: */*' \
-  -H 'Content-Type: multipart/form-data' \
-  -F 'file=@tu-documento.pdf'
-```
-
-### 3. Hacer preguntas sobre el documento
-
-```bash
-curl -X 'POST' \
-  'http://localhost:8080/api/qa/ask' \
-  -H 'accept: */*' \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "question": "¿Cuál es el tema principal del documento?"
-  }'
-```
-
-### 4. Interfaz Swagger UI
-
-Acceder a: http://localhost:8080/swagger-ui.html
-
-## 🔧 Endpoints Principales
-
-| Método | Endpoint | Descripción |
-|--------|----------|-------------|
-| POST | `/api/documents/upload` | Cargar un documento PDF |
-| GET | `/api/documents` | Listar todos los documentos |
-| DELETE | `/api/documents/{id}` | Eliminar un documento |
-| POST | `/api/qa/ask` | Hacer una pregunta |
-| GET | `/api/qa/history` | Ver historial de preguntas |
-
-## ⚙️ Configuración
-
-### Variables de entorno importantes
-
-```bash
-# Base de datos
-SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/legal_rag
-SPRING_DATASOURCE_USERNAME=postgres
-SPRING_DATASOURCE_PASSWORD=postgres
-
-# Ollama
-SPRING_AI_OLLAMA_BASE_URL=http://localhost:11434
-
-# Modelos
-SPRING_AI_OLLAMA_CHAT_OPTIONS_MODEL=llama3.2:latest
-SPRING_AI_OLLAMA_EMBEDDING_OPTIONS_MODEL=bge-m3:latest
-```
-
-### Parámetros de configuración RAG
-
-```properties
-# Tamaño de chunks
-app.rag.chunk.size=1000
-app.rag.chunk.overlap=200
-
-# Búsqueda semántica
-app.rag.search.similarity-threshold=0.2
-app.rag.search.max-results=5
-
-# Dimensión de embeddings
-app.rag.embedding.dimension=1024
-```
-
-## 🐳 Docker
-
-### Imagen disponible en Docker Hub
-
-```bash
-docker pull atuhome/rag-demo:v0.01
-```
-
-### Docker Compose completo
-
-El proyecto incluye un `docker-compose.yml` que levanta:
-- PostgreSQL con pgvector
-- Ollama con modelos pre-configurados
-- La aplicación RAG Demo
-
-## 🧪 Pruebas
-
-### Documento de ejemplo
-
-Crear un PDF de prueba:
-
-```bash
-echo "¿Qué es una vista SQL?
-Una vista es una tabla virtual basada en el resultado de una consulta SQL." > test.txt
-
-# Convertir a PDF (requiere LibreOffice)
-libreoffice --headless --convert-to pdf test.txt
-```
-
-### Flujo de prueba completo
-
-```bash
-# 1. Cargar documento
-curl -X POST http://localhost:8080/api/documents/upload \
-  -F "file=@test.pdf"
-
-# 2. Hacer pregunta
-curl -X POST http://localhost:8080/api/qa/ask \
+curl -X POST "http://localhost:8080/api/qa/ask" \
   -H "Content-Type: application/json" \
-  -d '{"question": "¿Qué es una vista SQL?"}'
+  -d '{"question": "¿Cuántos módulos tiene el programa?"}'
 ```
 
-## 🚨 Solución de Problemas
-
-### Ollama no responde
-
+### 3. Cambiar Modelo LLM
 ```bash
-# Verificar que Ollama esté ejecutándose
-ps aux | grep ollama
-
-# Reiniciar servicio
-ollama serve
-
-# Verificar modelos instalados
-ollama list
+curl -X POST "http://localhost:8080/api/models/change" \
+  -H "Content-Type: application/json" \
+  -d '{"modelName": "deepseek-r1:latest"}'
 ```
 
-### Error de conexión a PostgreSQL
-
+### 4. Ver Estado del Sistema
 ```bash
-# Verificar que PostgreSQL esté ejecutándose
-sudo systemctl status postgresql
-
-# Verificar extensión pgvector
-psql -U postgres -d legal_rag -c "SELECT * FROM pg_extension WHERE extname = 'vector';"
+curl "http://localhost:8080/api/health"
 ```
 
-### Modelos no encontrados
+## 🔮 Nuevas Características Propuestas
 
-```bash
-# Descargar modelos manualmente
-ollama pull llama3.2:latest
-ollama pull bge-m3:latest
+### 1. **Sistema de Anti-Alucinación Configurable por Sector**
+
+**Problema actual**: El servicio anti-alucinación es genérico.
+
+**Solución propuesta**: Servicios especializados por dominio/sector.
+
+**Implementación sugerida:**
+
+```java
+// Interfaz base
+public interface AntiHallucinationService {
+    String createPrompt(String question, String context);
+    boolean validateResponse(String response);
+    String createFallbackResponse(String question);
+}
+
+// Implementaciones especializadas
+@Component("legalAntiHallucination")
+public class LegalAntiHallucinationService implements AntiHallucinationService {
+    @Override
+    public String createPrompt(String question, String context) {
+        return """
+            Como asistente legal especializado, analiza estos documentos jurídicos:
+            
+            DOCUMENTOS LEGALES:
+            %s
+            
+            CONSULTA LEGAL: %s
+            
+            RESPUESTA LEGAL FUNDAMENTADA:
+            """.formatted(context, question);
+    }
+}
+
+@Component("medicalAntiHallucination")
+public class MedicalAntiHallucinationService implements AntiHallucinationService {
+    @Override
+    public String createPrompt(String question, String context) {
+        return """
+            Como asistente médico, basándote en evidencia científica:
+            
+            LITERATURA MÉDICA:
+            %s
+            
+            CONSULTA MÉDICA: %s
+            
+            RESPUESTA MÉDICA EVIDENCIADA:
+            """.formatted(context, question);
+    }
+}
+
+// Configuración dinámica
+@Service
+public class AntiHallucinationFactory {
+    private final Map<String, AntiHallucinationService> services;
+    
+    public AntiHallucinationService getService(String sector) {
+        return services.getOrDefault(sector + "AntiHallucination", 
+                                   services.get("defaultAntiHallucination"));
+    }
+}
 ```
 
-## 📚 Tecnologías Utilizadas
+**Configuración por API:**
+```java
+@PostMapping("/api/config/sector")
+public ResponseEntity<String> setSector(@RequestBody SectorRequest request) {
+    configService.setSector(request.getSector());
+    return ResponseEntity.ok("Sector configurado: " + request.getSector());
+}
+```
 
-- **Spring Boot 3.5.0**: Framework principal
-- **Spring AI**: Integración con Ollama
-- **PostgreSQL + pgvector**: Base de datos con soporte vectorial
-- **Ollama**: Modelos de IA locales
-- **Apache PDFBox**: Extracción de texto de PDFs
-- **Docker**: Contenerización
+### 2. **Sistema de Prompts Personalizables**
 
-## 🤝 Contribuciones
+**Implementación sugerida:**
 
-Las contribuciones son bienvenidas. Por favor:
+```java
+@Entity
+public class PromptTemplate {
+    @Id
+    private String id;
+    private String name;
+    private String sector;
+    private String template;
+    private String description;
+    private boolean active;
+    private Map<String, String> variables;
+}
 
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
+@Service
+public class PromptTemplateService {
+    
+    public List<PromptTemplate> getPromptsBySector(String sector) {
+        return promptRepository.findBySectorAndActiveTrue(sector);
+    }
+    
+    public String buildPrompt(String templateId, Map<String, String> variables) {
+        PromptTemplate template = promptRepository.findById(templateId)
+            .orElseThrow(() -> new NotFoundException("Template not found"));
+        
+        String prompt = template.getTemplate();
+        for (Map.Entry<String, String> var : variables.entrySet()) {
+            prompt = prompt.replace("{{" + var.getKey() + "}}", var.getValue());
+        }
+        return prompt;
+    }
+}
+```
 
+**Ejemplos de templates:**
+
+```yaml
+# Legal Sector
+legal_consultation:
+  template: |
+    Como abogado especializado, analiza estos documentos legales:
+    
+    MARCO LEGAL:
+    {{context}}
+    
+    CONSULTA: {{question}}
+    
+    Proporciona una respuesta fundamentada citando artículos específicos.
+    
+education_sector:
+  template: |
+    Como educador experto, basándote en este material pedagógico:
+    
+    MATERIAL EDUCATIVO:
+    {{context}}
+    
+    PREGUNTA PEDAGÓGICA: {{question}}
+    
+    Explica de manera clara y didáctica.
+```
+
+**API para gestión de prompts:**
+```java
+@RestController
+@RequestMapping("/api/prompts")
+public class PromptController {
+    
+    @GetMapping("/sectors/{sector}")
+    public List<PromptTemplate> getPromptsBySector(@PathVariable String sector) {
+        return promptService.getPromptsBySector(sector);
+    }
+    
+    @PostMapping
+    public PromptTemplate createPrompt(@RequestBody PromptTemplate template) {
+        return promptService.save(template);
+    }
+    
+    @PutMapping("/{id}/activate")
+    public void activatePrompt(@PathVariable String id) {
+        promptService.activate(id);
+    }
+}
+```
+
+### 3. **Sistema de Configuración por Usuario/Organización**
+
+```java
+@Entity
+public class OrganizationConfig {
+    @Id
+    private String organizationId;
+    private String sector;
+    private String activePromptTemplate;
+    private String activeAntiHallucinationService;
+    private Map<String, Object> customSettings;
+    private double similarityThreshold;
+    private int maxResults;
+}
+
+@Service
+public class ConfigurationService {
+    
+    public void applyConfiguration(String organizationId, String userId) {
+        OrganizationConfig config = getOrganizationConfig(organizationId);
+        UserConfig userConfig = getUserConfig(userId);
+        
+        // Aplicar configuración específica
+        setActivePromptService(config.getActivePromptTemplate());
+        setAntiHallucinationService(config.getActiveAntiHallucinationService());
+        setSearchParameters(config.getSimilarityThreshold(), config.getMaxResults());
+    }
+}
+```
+
+## 🚀 Mejoras Potenciales
+
+### 1. **Optimización de Embeddings**
+- **Caché de embeddings**: Redis para embeddings frecuentes
+- **Embeddings jerárquicos**: Diferentes modelos por tipo de documento
+- **Actualización incremental**: Re-embedding solo de chunks modificados
+
+### 2. **Búsqueda Avanzada**
+- **Filtros por metadatos**: Fecha, autor, tipo de documento
+- **Búsqueda híbrida**: Combinación de semántica y keyword
+- **Re-ranking**: Modelos especializados para mejorar resultados
+
+### 3. **Gestión de Contexto Inteligente**
+- **Resumen automático**: Condensación de contexto largo
+- **Contexto conversacional**: Mantener historial de conversación
+- **Contextualización dinámica**: Ajuste según tipo de pregunta
+
+### 4. **Escalabilidad y Rendimiento**
+- **Distribución**: Soporte para múltiples instancias
+- **Cola de procesamiento**: Apache Kafka para documentos grandes
+- **Caché distribuido**: Redis Cluster para alta disponibilidad
+
+### 5. **Evaluación y Métricas**
+- **Métricas de calidad**: BLEU, ROUGE para respuestas
+- **Feedback de usuarios**: Sistema de rating de respuestas
+- **A/B Testing**: Comparación entre diferentes configuraciones
+
+### 6. **Seguridad y Governance**
+- **Control de acceso**: RBAC para documentos sensibles
+- **Auditoría**: Log de todas las consultas y respuestas
+- **Cifrado**: Documentos y embeddings cifrados en reposo
+
+### 7. **Interfaz de Usuario**
+- **Dashboard web**: React/Vue.js para administración
+- **Chat interface**: Interface conversacional
+- **Analytics**: Métricas de uso y rendimiento
+
+## 📚 API Endpoints
+
+### Documentos
+- `POST /api/documents/upload` - Subir documento
+- `GET /api/documents` - Listar documentos
+- `GET /api/documents/{id}` - Obtener documento específico
+- `DELETE /api/documents/{id}` - Eliminar documento
+
+### Preguntas y Respuestas
+- `POST /api/qa/ask` - Hacer pregunta
+- `POST /api/qa/ask/custom` - Pregunta con parámetros personalizados
+- `GET /api/qa/history` - Historial de Q&A
+
+### Gestión de Modelos
+- `GET /api/models/available` - Modelos disponibles
+- `GET /api/models/available/chat` - Solo modelos de chat
+- `POST /api/models/change` - Cambiar modelo activo
+- `GET /api/models/current` - Modelo actual
+
+### Sistema
+- `GET /api/health` - Estado del sistema
+- `GET /api/stats` - Estadísticas del sistema
+
+## 🤝 Contribuir al Proyecto
+
+### Configuración del Entorno de Desarrollo
+
+1. **Fork del repositorio**
+2. **Configuración local:**
+   ```bash
+   git clone https://github.com/tu-usuario/rag-demo.git
+   cd rag-demo
+   cp application.properties.example application.properties
+   # Editar configuración según tu entorno
+   ```
+
+3. **Ejecutar tests:**
+   ```bash
+   ./mvnw test
+   ```
+
+### Estructura del Proyecto
+
+```
+src/main/java/com/atuhome/ragdemo/
+├── config/          # Configuraciones
+├── controller/      # REST Controllers
+├── exception/       # Excepciones personalizadas
+├── model/          # Entidades y DTOs
+├── repository/     # Repositories JPA
+├── service/        # Lógica de negocio
+│   ├── ai/         # Servicios de IA
+│   ├── document/   # Gestión de documentos
+│   ├── processing/ # Procesamiento de texto
+│   └── rag/        # Core RAG services
+└── util/           # Utilidades
+```
+
+### Guías de Contribución
+
+1. **Crear feature branch:**
+   ```bash
+   git checkout -b feature/nueva-caracteristica
+   ```
+
+2. **Estándares de código:**
+   - Java 21 features
+   - Spring Boot best practices
+   - Lombok para reducir boilerplate
+   - Tests unitarios obligatorios
+
+3. **Commit messages:**
+   ```
+   feat: agregar sistema de prompts personalizables
+   fix: corregir búsqueda semántica con caracteres especiales
+   docs: actualizar README con nuevos endpoints
+   ```
+
+4. **Pull Request:**
+   - Descripción clara del cambio
+   - Tests incluidos
+   - Documentación actualizada
+
+### Roadmap
+
+- [ ] Sistema de prompts personalizables
+- [ ] Anti-alucinación configurable por sector
+- [ ] Dashboard web de administración
+- [ ] Soporte para más tipos de documentos
+- [ ] Integración con servicios cloud
+- [ ] Métricas avanzadas y analytics
+- [ ] API de feedback de usuarios
+
+## 📄 Licencia
+
+
+
+## 🆘 Soporte
+
+Para preguntas, problemas o sugerencias:
+- Crear un issue en GitHub
+- Revisar la documentación en `/swagger-ui.html`
+- Consultar los logs de la aplicación
+
+---
+
+**Nota**: Este proyecto es una demostración de un sistema RAG completo. Para uso en producción, considerar implementar todas las mejoras de seguridad y escalabilidad mencionadas.

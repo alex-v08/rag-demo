@@ -6,6 +6,8 @@ import com.atuhome.ragdemo.model.dto.response.SearchResult;
 import com.atuhome.ragdemo.model.entity.QAHistory;
 import com.atuhome.ragdemo.repository.QAHistoryRepository;
 import com.atuhome.ragdemo.service.ai.AntiHallucinationService;
+import com.atuhome.ragdemo.service.ai.AntiHallucinationFactory;
+import com.atuhome.ragdemo.service.config.SectorConfigurationService;
 import com.atuhome.ragdemo.service.ai.DynamicChatService;
 import com.atuhome.ragdemo.service.ai.ModelManagementService;
 import lombok.RequiredArgsConstructor;
@@ -28,54 +30,79 @@ public class RagService {
 
     private final SemanticSearchService semanticSearchService;
     private final ContextBuilderService contextBuilderService;
-    private final AntiHallucinationService antiHallucinationService;
+    private final AntiHallucinationFactory antiHallucinationFactory;
+    private final SectorConfigurationService sectorConfigurationService;
     private final DynamicChatService dynamicChatService;
     private final ModelManagementService modelManagementService;
     private final QAHistoryRepository qaHistoryRepository;
 
     @Transactional
     public AnswerResponse processQuestion(String question) {
-        log.info("Procesando pregunta: {}", question);
+        return processQuestion(question, null, null);
+    }
+    
+    @Transactional
+    public AnswerResponse processQuestion(String question, String sessionId, String organizationId) {
+        log.info("Procesando pregunta: {} (sesión: {}, organización: {})", question, sessionId, organizationId);
         
         long startTime = System.currentTimeMillis();
         
         try {
-            // 1. Verificar que hay documentos indexados
+            // 1. Obtener configuración y servicio anti-alucinación para el sector
+            String effectiveSector = sectorConfigurationService.getEffectiveSector(sessionId, organizationId);
+            AntiHallucinationService antiHallucinationService = antiHallucinationFactory.getService(effectiveSector);
+            SectorConfigurationService.SectorConfiguration sectorConfig = 
+                sectorConfigurationService.getSessionConfiguration(sessionId);
+            
+            log.debug("Usando sector: {} con servicio: {}", effectiveSector, antiHallucinationService.getClass().getSimpleName());
+            
+            // 2. Verificar que hay documentos indexados
             if (!semanticSearchService.hasIndexedDocuments()) {
-                return createNoDocumentsResponse(question, startTime);
+                return createNoDocumentsResponse(question, startTime, effectiveSector);
             }
             
-            // 2. Búsqueda semántica
-            List<SearchResult> searchResults = semanticSearchService.findSimilarChunks(question);
+            // 3. Búsqueda semántica con parámetros configurables
+            List<SearchResult> searchResults;
+            if (sectorConfig != null) {
+                // Usar parámetros específicos de la configuración de sector
+                searchResults = semanticSearchService.findSimilarChunks(
+                    question, 
+                    sectorConfig.getSettings().getSimilarityThreshold(),
+                    sectorConfig.getSettings().getMaxResults()
+                );
+            } else {
+                // Usar parámetros por defecto
+                searchResults = semanticSearchService.findSimilarChunks(question);
+            }
             
             if (searchResults.isEmpty()) {
-                return createNoResultsResponse(question, startTime);
+                return createNoResultsResponse(question, startTime, effectiveSector);
             }
             
-            log.debug("Encontrados {} chunks relevantes", searchResults.size());
+            log.debug("Encontrados {} chunks relevantes para sector: {}", searchResults.size(), effectiveSector);
             
-            // 3. Construir contexto
+            // 4. Construir contexto
             String context = contextBuilderService.buildContext(searchResults);
             
-            // 4. Crear prompt optimizado
-            String prompt = "INSTRUCCIONES: Analiza la información proporcionada y responde directamente la pregunta.\n\n" +
-                          "INFORMACIÓN DE DOCUMENTOS:\n" + context + "\n\n" +
-                          "PREGUNTA: " + question + "\n\n" +
-                          "ANÁLISIS Y RESPUESTA DIRECTA:";
+            // 5. Crear prompt especializado usando el servicio del sector
+            String prompt = antiHallucinationService.createPrompt(question, context);
             
-            // 5. Generar respuesta con LLM
+            // 6. Generar respuesta con LLM
             String answer = generateAnswer(prompt);
             
-            // 6. Validar respuesta
-            if (!antiHallucinationService.validateResponse(answer)) {
-                log.warn("Respuesta falló validación, usando respuesta de fallback");
+            // 7. Validar respuesta con el servicio especializado
+            boolean strictValidation = sectorConfig != null ? 
+                sectorConfig.getSettings().isStrictValidation() : true;
+                
+            if (strictValidation && !antiHallucinationService.validateResponse(answer)) {
+                log.warn("Respuesta falló validación del sector {}, usando respuesta de fallback", effectiveSector);
                 answer = antiHallucinationService.createFallbackResponse(question);
             }
             
-            // 7. Calcular tiempo de respuesta
+            // 8. Calcular tiempo de respuesta
             long responseTime = System.currentTimeMillis() - startTime;
             
-            // 8. Crear respuesta
+            // 9. Crear respuesta con información del sector
             AnswerResponse response = AnswerResponse.builder()
                     .question(question)
                     .answer(answer)
@@ -85,8 +112,8 @@ public class RagService {
                     .modelUsed(modelManagementService.getCurrentChatModel())
                     .build();
             
-            // 9. Guardar en historial
-            saveToHistory(response, context);
+            // 10. Guardar en historial con información del sector
+            saveToHistory(response, context, effectiveSector);
             
             log.info("Pregunta procesada exitosamente en {}ms", responseTime);
             return response;
@@ -94,7 +121,8 @@ public class RagService {
         } catch (Exception e) {
             log.error("Error procesando pregunta: {}", question, e);
             long responseTime = System.currentTimeMillis() - startTime;
-            return createErrorResponse(question, e.getMessage(), responseTime);
+            String sector = sectorConfigurationService.getEffectiveSector(sessionId, organizationId);
+            return createErrorResponse(question, e.getMessage(), responseTime, sector);
         }
     }
 
@@ -170,11 +198,17 @@ public class RagService {
 
     @Transactional
     private void saveToHistory(AnswerResponse response, String context) {
+        saveToHistory(response, context, "default");
+    }
+    
+    @Transactional
+    private void saveToHistory(AnswerResponse response, String context, String sector) {
         try {
-            // Crear mapa de sources
+            // Crear mapa de sources con información del sector
             Map<String, Object> sourcesMap = new HashMap<>();
             sourcesMap.put("chunks", response.getSources());
             sourcesMap.put("total_chunks", response.getSources().size());
+            sourcesMap.put("sector_used", sector);
             
             QAHistory history = QAHistory.builder()
                     .question(response.getQuestion())
@@ -186,7 +220,7 @@ public class RagService {
                     .build();
             
             qaHistoryRepository.save(history);
-            log.debug("Interacción guardada en historial");
+            log.debug("Interacción guardada en historial con sector: {}", sector);
             
         } catch (Exception e) {
             log.error("Error guardando en historial Q&A", e);
@@ -195,6 +229,10 @@ public class RagService {
     }
 
     private AnswerResponse createNoDocumentsResponse(String question, long startTime) {
+        return createNoDocumentsResponse(question, startTime, "default");
+    }
+    
+    private AnswerResponse createNoDocumentsResponse(String question, long startTime, String sector) {
         long responseTime = System.currentTimeMillis() - startTime;
         
         return AnswerResponse.builder()
@@ -208,6 +246,10 @@ public class RagService {
     }
 
     private AnswerResponse createNoResultsResponse(String question, long startTime) {
+        return createNoResultsResponse(question, startTime, "default");
+    }
+    
+    private AnswerResponse createNoResultsResponse(String question, long startTime, String sector) {
         long responseTime = System.currentTimeMillis() - startTime;
         
         return AnswerResponse.builder()
@@ -222,6 +264,10 @@ public class RagService {
     }
 
     private AnswerResponse createErrorResponse(String question, String errorMessage, long responseTime) {
+        return createErrorResponse(question, errorMessage, responseTime, "default");
+    }
+    
+    private AnswerResponse createErrorResponse(String question, String errorMessage, long responseTime, String sector) {
         return AnswerResponse.builder()
                 .question(question)
                 .answer("Lo siento, ocurrió un error procesando tu pregunta. Por favor, intenta nuevamente.")

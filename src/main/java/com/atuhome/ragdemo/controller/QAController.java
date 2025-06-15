@@ -15,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import jakarta.servlet.http.HttpServletRequest;
 
 import java.util.Map;
 
@@ -42,11 +43,22 @@ public class QAController {
     @ApiResponse(responseCode = "500", description = "Error interno del servidor")
     public ResponseEntity<AnswerResponse> askQuestion(
             @Parameter(description = "Pregunta a procesar", required = true)
-            @Valid @RequestBody QuestionRequest request) {
+            @Valid @RequestBody QuestionRequest request,
+            @Parameter(description = "ID de sesión (opcional)") 
+            @RequestParam(required = false) String sessionId,
+            @Parameter(description = "ID de organización (opcional)") 
+            @RequestParam(required = false) String organizationId,
+            HttpServletRequest httpRequest) {
         
-        log.info("Recibida pregunta: {}", request.getQuestion());
+        log.info("Recibida pregunta: {} (sesión: {}, organización: {})", 
+                request.getQuestion(), sessionId, organizationId);
         
-        AnswerResponse response = ragService.processQuestion(request.getQuestion());
+        // Si no se proporciona sessionId, usar el ID de la sesión HTTP
+        if (sessionId == null || sessionId.trim().isEmpty()) {
+            sessionId = httpRequest.getSession().getId();
+        }
+        
+        AnswerResponse response = ragService.processQuestion(request.getQuestion(), sessionId, organizationId);
         
         log.info("Pregunta procesada en {}ms con {} fuentes", 
                 response.getResponseTimeMs(), response.getSources().size());
